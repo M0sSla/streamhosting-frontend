@@ -6,6 +6,7 @@ import { ApolloClientProvider } from "@/providers/ApolloClientProvider";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { ThemeProvider } from '@/providers/ThemeProvider';
+import { ToastProvider } from '@/providers/ToastProvider';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,6 +34,7 @@ export default async function RootLayout({
                 defaultTheme="system"
                 disableTransitionOnChange
               >
+                <ToastProvider/>
                 {children}
               </ThemeProvider>
             </NextIntlClientProvider>

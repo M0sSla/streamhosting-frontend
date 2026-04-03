@@ -1,8 +1,9 @@
-# mutation VerifyAccount($data: VerificationInput!) {
-# 	verifyAccount(data: $data) {
-# 		user {
-# 			isEmailVerified
-# 		}
-# 		message
-# 	}
-# }
+mutation VerifyAccount($data: VerificationInput!) {
+	verifyAccount(data: $data) {
+        isEmailVerified
+		# user {
+		# 	isEmailVerified
+		# }
+		# message
+	}
+}
