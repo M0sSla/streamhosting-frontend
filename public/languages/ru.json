@@ -2,6 +2,7 @@
 	"layout": {
 		"header": {
 			"logo": {
+				"heading": "StreamHosting",
 				"platform": "Платформа для стримов"
 			},
 			"headerMenu": {
