@@ -1,14 +1,18 @@
 import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import '../styles/globals.css'
-import { ApolloClientProvider } from "@/providers/ApolloClientProvider";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
+
+import { ApolloClientProvider } from "@/providers/ApolloClientProvider";
 import { ThemeProvider } from '@/providers/ThemeProvider';
 import { ToastProvider } from '@/providers/ToastProvider';
 
 const inter = Inter({ subsets: ["latin"] });
+
+import '@/styles/globals.css'
+import '@/styles/themes.css'
+import { ColorSwitcher } from '@/components/ui/elements/ColorSwitcher';
 
 
 export const metadata: Metadata = {
@@ -27,6 +31,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body className={GeistSans.variable}>
+          <ColorSwitcher/>
           <ApolloClientProvider>
             <NextIntlClientProvider messages={messages}>
               <ThemeProvider

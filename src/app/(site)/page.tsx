@@ -69,8 +69,8 @@ async function findRandomCategories() {
 export default async function HomePage() {
 	const t = await getTranslations('home')
 
-	const { streams } = await findRandomStreams()
-	const { categories } = await findRandomCategories()
+	// const { streams } = await findRandomStreams()
+	// const { categories } = await findRandomCategories()
 
 	return (
 		<div className='space-y-10'>

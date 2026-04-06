@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 
-
+import { CreateAccountForm } from '@/components/features/auth/forms/CreateAccountForm'
 
 export async function generateMetadata(): Promise<Metadata> {
 	const t = await getTranslations('auth.register')
@@ -12,5 +12,5 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function CreateAccountPage() {
-    return <div></div>
+	return <CreateAccountForm />
 }
