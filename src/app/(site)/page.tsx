@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server'
 
 // import { CategoriesList } from '@/components/features/category/list/CategoriesList'
-// import { StreamsList } from '@/components/features/stream/list/StreamsList'
+import { StreamsList } from '@/components/features/stream/list/StreamsList'
 
 import {
 	FindRandomCategoriesDocument,
@@ -69,12 +69,12 @@ async function findRandomCategories() {
 export default async function HomePage() {
 	const t = await getTranslations('home')
 
-	// const { streams } = await findRandomStreams()
-	// const { categories } = await findRandomCategories()
+	const { streams } = await findRandomStreams()
+	const { categories } = await findRandomCategories()
 
 	return (
 		<div className='space-y-10'>
-			{/* <StreamsList heading={t('streamsHeading')} streams={streams} /> */}
+			{<StreamsList heading={t('streamsHeading')} streams={streams} />}
 			{/* <CategoriesList
 				heading={t('categoriesHeading')}
 				categories={categories}
