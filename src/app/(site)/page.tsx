@@ -1,6 +1,6 @@
 import { getTranslations } from 'next-intl/server'
 
-// import { CategoriesList } from '@/components/features/category/list/CategoriesList'
+ import { CategoriesList } from '@/components/features/category/list/CategoriesList'
 import { StreamsList } from '@/components/features/stream/list/StreamsList'
 
 import {
@@ -75,10 +75,10 @@ export default async function HomePage() {
 	return (
 		<div className='space-y-10'>
 			{<StreamsList heading={t('streamsHeading')} streams={streams} />}
-			{/* <CategoriesList
+			{<CategoriesList
 				heading={t('categoriesHeading')}
 				categories={categories}
-			/> */}
+			/>}
 		</div>
 	)
 }
