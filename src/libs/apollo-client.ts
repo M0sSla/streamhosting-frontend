@@ -13,27 +13,27 @@ const httpLink = createUploadLink({
 	}
 })
 
-// const wsLink = new WebSocketLink({
-// 	uri: WEBSOCKET_URL,
-// 	options: {
-// 		reconnect: true
-// 	}
-// })
+const wsLink = new WebSocketLink({
+	uri: WEBSOCKET_URL,
+	options: {
+		reconnect: true
+	}
+})
 
-// const splitLink = split(
-// 	({ query }) => {
-// 		const definition = getMainDefinition(query)
+const splitLink = split(
+	({ query }) => {
+		const definition = getMainDefinition(query)
 
-// 		return (
-// 			definition.kind === 'OperationDefinition' &&
-// 			definition.operation === 'subscription'
-// 		)
-// 	},
-// 	wsLink,
-// 	httpLink
-// )
+		return (
+			definition.kind === 'OperationDefinition' &&
+			definition.operation === 'subscription'
+		)
+	},
+	wsLink,
+	httpLink
+)
 
 export const client = new ApolloClient({
-	link: httpLink,
+	link: splitLink,
 	cache: new InMemoryCache()
 })

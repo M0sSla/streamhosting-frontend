@@ -583,6 +583,8 @@ export type UserModel = {
   notifications: Array<NotificationModel>;
   password: Scalars['String']['output'];
   socialLinks?: Maybe<Array<SocialLinkModel>>;
+  sponsorshipPlans: Array<PlanModel>;
+  sponsorshipSubscriptions: Array<SubscriptionModel>;
   stream: StreamModel;
   telegramId?: Maybe<Scalars['String']['output']>;
   totpSecret?: Maybe<Scalars['String']['output']>;
@@ -838,7 +840,7 @@ export type FindChannelByUsernameQueryVariables = Exact<{
 }>;
 
 
-export type FindChannelByUsernameQuery = { __typename?: 'Query', findChannelByUsername: { __typename?: 'UserModel', id: string, username: string, displayName: string, avatar?: string | null, bio?: string | null, isVerified: boolean, socialLinks?: Array<{ __typename?: 'SocialLinkModel', title: string, url: string }> | null, stream: { __typename?: 'StreamModel', id: string, title: string, thumbnailUrl?: string | null, isLive: boolean, isChatEnabled: boolean, isChatFollowersOnly: boolean, isChatPremiumFollowersOnly: boolean, category?: { __typename?: 'CategoryModel', id: string, title: string } | null }, followings: Array<{ __typename?: 'FollowModel', id: string }> } };
+export type FindChannelByUsernameQuery = { __typename?: 'Query', findChannelByUsername: { __typename?: 'UserModel', id: string, username: string, displayName: string, avatar?: string | null, bio?: string | null, isVerified: boolean, socialLinks?: Array<{ __typename?: 'SocialLinkModel', title: string, url: string }> | null, stream: { __typename?: 'StreamModel', id: string, title: string, thumbnailUrl?: string | null, isLive: boolean, isChatEnabled: boolean, isChatFollowersOnly: boolean, isChatPremiumFollowersOnly: boolean, category?: { __typename?: 'CategoryModel', id: string, title: string } | null }, sponsorshipPlans: Array<{ __typename?: 'PlanModel', id: string, title: string, description?: string | null, price: number }>, followings: Array<{ __typename?: 'FollowModel', id: string }> } };
 
 export type FindRecommendedChannelsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -2156,6 +2158,12 @@ export const FindChannelByUsernameDocument = gql`
         id
         title
       }
+    }
+    sponsorshipPlans {
+      id
+      title
+      description
+      price
     }
     followings {
       id
