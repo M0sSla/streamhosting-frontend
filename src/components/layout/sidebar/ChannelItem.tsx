@@ -42,7 +42,9 @@ export function ChannelItem({ channel }: ChannelItemProps) {
 		<Button
 			className={cn(
 				'mt-2 h-11 w-full justify-start',
-				isActive && 'bg-accent'
+				isActive
+					? 'bg-accent hover:bg-accent'
+					: 'hover:bg-secondary'
 			)}
 			variant='ghost'
 			asChild

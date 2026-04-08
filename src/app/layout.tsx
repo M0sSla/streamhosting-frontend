@@ -1,6 +1,5 @@
 import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 
@@ -8,7 +7,6 @@ import { ApolloClientProvider } from "@/providers/ApolloClientProvider";
 import { ThemeProvider } from '@/providers/ThemeProvider';
 import { ToastProvider } from '@/providers/ToastProvider';
 
-const inter = Inter({ subsets: ["latin"] });
 
 import '@/styles/globals.css'
 import '@/styles/themes.css'
@@ -73,7 +71,7 @@ export default async function RootLayout({
   const messages = await getMessages()
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <body className={GeistSans.variable}>
           <ColorSwitcher/>
           <ApolloClientProvider>

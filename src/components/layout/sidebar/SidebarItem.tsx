@@ -27,7 +27,9 @@ export function SidebarItem({ route }: SidebarItemProps) {
 			<Button
 				className={cn(
 					'h-11 w-full justify-center',
-					isActive && 'bg-accent'
+					isActive
+						? 'bg-accent hover:bg-accent'
+						: 'hover:bg-secondary'
 				)}
 				variant='ghost'
 				asChild
@@ -39,7 +41,12 @@ export function SidebarItem({ route }: SidebarItemProps) {
 		</Hint>
 	) : (
 		<Button
-			className={cn('h-11 w-full justify-start', isActive && 'bg-accent')}
+			className={cn(
+				'h-11 w-full justify-start',
+				isActive
+					? 'bg-accent hover:bg-accent'
+					: 'hover:bg-secondary'
+			)}
 			variant='ghost'
 			asChild
 		>
